@@ -2,6 +2,13 @@
 class ReadWrite:
     def __init__(self):
         print(" ==-- START class ReadWrite --==")
+    def __init__(self, *args, **kwargs):
+        self.path_work = self.os.getcwd()                                   # каталог для работы - откуда тартовала программа
+        self.path_start_config =  kwargs.get("path_start", self.path_work)  # Start program -использовать для чтение конфигураций
+        self.path_sourse = kwargs.get("path_sourse", self.path_work)        # где лежат данные
+        self.disk = self._disk(self.path_start_config)
+        return
+
 #----------------
     def _cd(self, path:str):
         self._disk(path)
