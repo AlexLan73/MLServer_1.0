@@ -1,7 +1,12 @@
 
-from Disk.ReadWrite import *
-from Config import *
+from ConfigDan import *
+
+
 if __name__ == "__main__":
     print(" ~~~  Test ")
-    _path = r"E:\MLserver\MLServer1.0"
-    _rw = ReadWrite(path_start =_path)
+    _path_config = r"E:\MLserver\MLServer1.0"
+    _config = ConfigDan()
+    _name_file_config = "mlserver"
+    _config_dan = _config.read(_path_config+"\\"+_name_file_config)
+    _config.set("PS0001")
+    k=1

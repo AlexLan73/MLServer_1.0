@@ -56,27 +56,6 @@ class ReadWrite:
             for it in s:
                 file.write(it)
 #----------------
-    def save_json(self, path, dan_json):
-        with open(path, 'w') as f:
-            f.write(self.json.dumps(dan_json))
-#----------------
-    def read_json(self, file):
-        try:
-            k =file.index(".json")>0
-        except:
-            file = file + ".json"
-
-        __dan_json = dict()
-        if self.os.path.isfile(file):
-            with open(file,  'r') as json_file:
-                try:
-                    dan =self.json.load(json_file)
-                    return dan
-                except:
-                    print("  Ошибка в файле {}",format(file))
-                    return __dan_json
-        return __dan_json
-#----------------
     def make_dir(self, dir, new = False):
         import shutil
         import time

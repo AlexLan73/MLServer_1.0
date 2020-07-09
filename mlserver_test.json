@@ -1,0 +1,29 @@
+{
+  "clexport": {
+                "MDF": " -v -~ -o -t -l \"file_clf\" -MB -O  \"my_dir\" SystemChannel=Binlog_GL.ini"
+              },
+  "lrf_dec": " -S 20 -L 512 -n -k -v -i ",
+ "Car name":
+  {
+      "PS0001":{
+            "clexport":
+              {
+                "MDF": " -v -~ -o -t -l \"file_clf\" -MB -O  \"my_dir\" SystemChannel=Binlog_GL.ini",
+                "RAM":
+                {
+                  "F01": "1",
+                  "F02": "2",
+                  "F03": "3",
+                   "RAM1":
+                        {
+                          "F011": "11",
+                          "F021": "21",
+                          "F031": "31"
+                        }
+                }
+              },
+            "lrf_dec": " -S 20 -L 1024 -n -k -v -i "
+      }
+  }
+
+}
