@@ -4,17 +4,12 @@ class ConfigDan:
     def __init__(self, **kwargs):
         print("  --- class ConfigDan --")
 
-        self.path_file_name_config = kwargs.get("PathConfig", self.os.getcwd() + "\\mlserver.json")  # path config
-        try:
-            k = self.path_file_name_config.index(".json") > 0
-        except:
-            self.path_file_name_config = self.path_file_name_config + ".json"
+        _path_file_name_config = kwargs.get("PathConfig", self.os.getcwd()+"\\+mlserver.json")   # path config
+        self.all_config = self.read(_path_file_name_config)
 
-        self.all_config = self.read(self.path_file_name_config)
+        self.car_name = kwargs.get("Car name", "")                                          # name car
 
-        self.car_name = kwargs.get("Car name", "")  # name car
-
-        self.clexport, self.lrf_dec, self.config_car = dict(), dict(), dict()
+        self.clexport, self.lrf_dec, self._config_car = dict(), dict(), dict()
 
         self.set(self.car_name)
 
@@ -46,11 +41,11 @@ class ConfigDan:
             }))
             self.lrf_dec = self.copy.deepcopy(config.get("lrf_dec", " -S 20 -L 512 -n -k -v -i "))
 
-        if "Car name" in self.all_config:  # проверка существует ли в конфигурации раздел Car name
+        if "Car name" in self.all_config:       # проверка существует ли в конфигурации раздел Car name
 
-            self.config_car = self.all_config["Car name"]
-            if car_name in self.config_car:
-                _config = self.config_car[car_name]
+            self._config_car = self.all_config["Car name"]
+            if car_name in self._config_car:
+                _config = self._config_car[car_name]
                 __set_default(self, _config)
 
         else:
