@@ -80,3 +80,16 @@ class ReadWrite:
         for key, val in ddir.items():
             self.make_dir(val, new)
 #----------------
+    def __test_name_picle(self, path):
+        if path.index('.pickle') <= 0:
+            return path + '.pickle'
+
+    def SaveFilePckle(self, name, data):
+        import pickle
+        with open(self.__test_name_picle(name), 'wb') as f:
+            pickle.dump(data, f)
+#----------------
+    def LoadFilePckle(self, name):
+        import pickle
+        with open(self.__test_name_picle(name), 'rb') as f:
+            return pickle.load(f)
